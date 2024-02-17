@@ -1,183 +1,147 @@
 {
   "people": [
     {
-      "id": "b57a222f-01c3-4c6f-ae9b-d53cc0622ff4",
+      "id": "d2ec618d-f5bd-43bc-b946-6aea330f7ad9",
       "name": "Rostislav",
       "surname": "Hv\u00edzdal",
       "born": "12.9.1943",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "0cf437c5-b415-4b54-b508-085c159ee6e2",
+      "id": "1eabbc61-c4e0-426c-87fb-3109776576ab",
       "name": "Marie",
       "surname": "Hv\u00edzdalov\u00e1",
       "born": "30.7.1946",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": "Sedl\u00e1\u010dkov\u00e1"
     },
     {
-      "id": "a19f95df-6b24-43f3-bb1b-ea24655c273e",
+      "id": "eee5f8a7-80d7-4839-9d8a-5d5b88d68910",
       "name": "Rostislav",
       "surname": "Hv\u00edzdal",
       "born": "21.3.1969",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "f6c9cf96-ad0b-47cf-8eb1-aeb78d2f21ad",
+      "id": "4bc33de4-0616-43c6-b368-cab8eef43e1f",
       "name": "Marie",
       "surname": "Pol\u00e1\u010dkov\u00e1",
       "born": "4.5.1971",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": "Hv\u00edzdalov\u00e1"
     },
     {
-      "id": "48f61ccf-32c6-4d0b-8372-38c848992459",
+      "id": "a5899178-633c-4215-b40f-d513a4e7eccf",
       "name": "Stanislav",
       "surname": "Pol\u00e1\u010dek",
       "born": "4.5.1971",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "28772ba5-3b57-4fd3-9b53-d5dd9a422b6e",
+      "id": "80118124-c03a-49d8-8a60-a4b1069a7254",
       "name": "Jan",
       "surname": "Pol\u00e1\u010dek",
       "born": "29.12.2002",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "5f80c7e0-693f-4c79-a829-2e197558eda6",
+      "id": "d280a894-e870-4832-a5bf-15fd15fd9134",
       "name": "Mark\u00e9ta",
       "surname": "Pol\u00e1\u010dkov\u00e1",
       "born": "25.10.2005",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "8d8bb726-3dd8-4e44-ae99-006e46f5ac36",
+      "id": "36bd495c-0221-4fa6-adae-55beb7b65498",
       "name": "Stanislav",
       "surname": "Pol\u00e1\u010dek",
       "born": "19.5.2000",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "29cdf370-e2a8-4f45-9dcf-329dac2fa0e1",
+      "id": "dc6a0867-5ea0-4846-bbe4-0d112d829bcf",
       "name": "Ane\u017eka",
       "surname": "Pol\u00e1\u010dkov\u00e1",
       "born": "17.2.1949",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": "Kone\u010dn\u00e1"
     },
     {
-      "id": "c6fb8278-447a-4c7a-bd5f-369e3322f80c",
+      "id": "e5b9af10-cc29-4ff1-8992-04528beb4be7",
       "name": "Stanislav",
       "surname": "Pol\u00e1\u010dek",
       "born": "4.5.1947",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "f6a37069-c0c4-4b81-80a0-2ee189a31e57",
+      "id": "155213d8-4fa6-42c2-a95d-967cf6303706",
       "name": "Martina",
       "surname": "Hv\u00edzdalov\u00e1",
       "born": "10.7.1976",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "41948421-1b5a-4480-9302-491d528a76d0",
+      "id": "f7226812-d48b-42dc-a2ed-c8624baf0001",
       "name": "Luk\u00e1\u0161",
       "surname": "Pol\u00e1\u010dek",
       "born": "27.2.1974",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "0de1561c-597f-44cb-ba4d-bf05ba1c7432",
+      "id": "886e56d8-b2af-451d-bd76-c442b43e6ab0",
       "name": "Petra",
       "surname": "Pol\u00e1\u010dkov\u00e1",
       "born": "14.7.1980",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": "Fricov\u00e1"
     },
     {
-      "id": "daa1e311-d470-4d85-afe3-f5b38423b41c",
+      "id": "45d7d3f5-9c5d-44f0-b553-44370b504ecb",
       "name": "Luk\u00e1\u0161",
       "surname": "Pol\u00e1\u010dek",
       "born": "16.7.2003",
-      "death": "1.1.2000"
+      "death": "",
+      "birth_name": ""
     },
     {
-      "id": "5fee7080-8e31-4f96-88fd-adc265de7187",
+      "id": "e962363c-9c42-4948-b34d-5e3c3ae3a6a4",
       "name": "Zuzana",
       "surname": "Pol\u00e1\u010dkov\u00e1",
       "born": "26.9.2005",
-      "death": "1.1.2000"
-    },
-    {
-      "id": "7c3904db-9a52-4177-af7f-13c14b6a1e25",
-      "name": "Ji\u0159ina",
-      "surname": "Hv\u00edzdalov\u00e1",
-      "born": "2.2.2000",
-      "death": ""
-    },
-    {
-      "id": "be01620f-8f33-4484-baf8-cb6d9590651b",
-      "name": "Alena",
-      "surname": "Hv\u00edzdalov\u00e1",
-      "born": "2000",
-      "death": ""
-    },
-    {
-      "id": "f10136f7-cf57-4184-9079-df189af6c58f",
-      "name": "Daniel",
-      "surname": "Hv\u00edzdal",
-      "born": "2002",
-      "death": ""
+      "death": "",
+      "birth_name": ""
     }
   ],
   "couples": [
     {
-      "mother_id": "0cf437c5-b415-4b54-b508-085c159ee6e2",
-      "father_id": "b57a222f-01c3-4c6f-ae9b-d53cc0622ff4",
+      "mother_id": "1eabbc61-c4e0-426c-87fb-3109776576ab",
+      "father_id": "d2ec618d-f5bd-43bc-b946-6aea330f7ad9",
       "family_surname": "Hv\u00edzdalovi",
       "marriage": "1.1.2000",
       "children_ids": [
-        "f6c9cf96-ad0b-47cf-8eb1-aeb78d2f21ad",
-        "a19f95df-6b24-43f3-bb1b-ea24655c273e",
-        "f6a37069-c0c4-4b81-80a0-2ee189a31e57"
+        "4bc33de4-0616-43c6-b368-cab8eef43e1f",
+        "eee5f8a7-80d7-4839-9d8a-5d5b88d68910",
+        "155213d8-4fa6-42c2-a95d-967cf6303706"
       ]
     },
     {
-      "mother_id": "f6c9cf96-ad0b-47cf-8eb1-aeb78d2f21ad",
-      "father_id": "48f61ccf-32c6-4d0b-8372-38c848992459",
+      "mother_id": "4bc33de4-0616-43c6-b368-cab8eef43e1f",
+      "father_id": "a5899178-633c-4215-b40f-d513a4e7eccf",
       "family_surname": "Pol\u00e1\u010dkovi",
       "marriage": "1.1.2000",
       "children_ids": [
-        "28772ba5-3b57-4fd3-9b53-d5dd9a422b6e",
-        "5f80c7e0-693f-4c79-a829-2e197558eda6",
-        "8d8bb726-3dd8-4e44-ae99-006e46f5ac36"
-      ]
-    },
-    {
-      "mother_id": "29cdf370-e2a8-4f45-9dcf-329dac2fa0e1",
-      "father_id": "c6fb8278-447a-4c7a-bd5f-369e3322f80c",
-      "family_surname": "Pol\u00e1\u010dkovi",
-      "marriage": "1.1.2000",
-      "children_ids": [
-        "48f61ccf-32c6-4d0b-8372-38c848992459",
-        "41948421-1b5a-4480-9302-491d528a76d0"
-      ]
-    },
-    {
-      "mother_id": "0de1561c-597f-44cb-ba4d-bf05ba1c7432",
-      "father_id": "41948421-1b5a-4480-9302-491d528a76d0",
-      "family_surname": "Pol\u00e1\u010dkovi",
-      "marriage": "1.1.2000",
-      "children_ids": [
-        "daa1e311-d470-4d85-afe3-f5b38423b41c",
-        "5fee7080-8e31-4f96-88fd-adc265de7187"
-      ]
-    },
-    {
-      "mother_id": "7c3904db-9a52-4177-af7f-13c14b6a1e25",
-      "father_id": "a19f95df-6b24-43f3-bb1b-ea24655c273e",
-      "family_surname": "Hv\u00edzdalovi",
-      "marriage": "1999",
-      "children_ids": [
-        "be01620f-8f33-4484-baf8-cb6d9590651b",
-        "f10136f7-cf57-4184-9079-df189af6c58f"
+        "80118124-c03a-49d8-8a60-a4b1069a7254",
+        "d280a894-e870-4832-a5bf-15fd15fd9134",
+        "36bd495c-0221-4fa6-adae-55beb7b65498"
       ]
     }
   ]
