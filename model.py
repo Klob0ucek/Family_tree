@@ -17,21 +17,22 @@ class Data:
             p, c = test_data()
             self.people = p
             self.couples = c
-            return
+        self.draw_family_tree()
     
     def draw_family_tree(self):
         family_tree = Graph(comment='Family Tree')
 
         family_tree.attr('node', shape='box', rankdir='TB', fontname='Arial', splines='ortho')
+        family_tree.attr(ranksep='1.2',  nodesep='0.4')
 
         for person in self.people:
-            family_tree.node(str(person.id), f'{person.name} {person.surname}\n* {person.born}\n T 20.2.2002')
+            family_tree.node(str(person.id), person.node_data())
 
         for couple in self.couples:
             with family_tree.subgraph(name=f'cluster_{str(couple.mother.id)}_{str(couple.father.id)}') as sg:
                 sg.attr(label=f'{couple.family_surname}')
-                sg.node(str(couple.mother.id), f'{couple.mother.name} {couple.mother.surname}')
-                sg.node(str(couple.father.id), f'{couple.father.name} {couple.father.surname}')
+                sg.node(str(couple.mother.id), couple.mother.node_data())
+                sg.node(str(couple.father.id), couple.father.node_data())
                                 
                 sg.edge(str(couple.mother.id), str(couple.father.id), constraint='false')
 
@@ -70,8 +71,9 @@ class Person:
         return f"{self.name} {self.surname} ({self.born})"
     
     def node_data(self):
-        birth_name = f"(birth_surname)" if self.birth_surname != "" else ""
-        return f'{person.name} {birth_name} {person.surname}\n* {person.born}\n T {person.death}'
+        birth_name = f"({self.birth_surname})" if self.birth_surname != "" else ""
+        death = f"\n+ {self.death}" if self.death else ""
+        return f'{self.name} {birth_name} {self.surname}\n* {self.born}{death}'
 
 class Couple:
     def __init__(self, mother, father, family_surname, marriage="1.1.2000", children=[]):

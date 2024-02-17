@@ -4,12 +4,11 @@ from PIL import Image, ImageTk
 from tkinter import simpledialog
 
 from model import Data, Person, Couple
-from model import test_data
 
 WINDOW_WIDTH = 1200
 WINDOW_HEIGHT = 700
 
-class PersonDialog(simpledialog.Dialog): # TODO - need to be change if Person changes
+class PersonDialog(simpledialog.Dialog):
     def __init__(self, parent, title):
         super().__init__(parent, title)
         
@@ -43,13 +42,13 @@ class PersonDialog(simpledialog.Dialog): # TODO - need to be change if Person ch
         self.result = Person(name, surname, born=born_date, death=death_date, birth_surname=birth_surname)
 
 
-class CoupleDialog(simpledialog.Dialog): # TODO - need to be change if Couple changes
+class CoupleDialog(simpledialog.Dialog):
     def __init__(self, parent, title, data):
         self.data = data
         self.selected_kids = []
         super().__init__(parent, title)
 
-    def body(self, master): # Add new Person for mother/father
+    def body(self, master):
         tk.Label(master, text="Choose paretns:").grid(row=0, columnspan=2)
         tk.Label(master, text="Mother:").grid(row=1)
 
@@ -96,7 +95,6 @@ class CoupleDialog(simpledialog.Dialog): # TODO - need to be change if Couple ch
         self.add_child_button = tk.Button(master, text="Add Child", command=self.add_child)
         self.add_child_button.grid(row=6, column=1, columnspan=2)
 
-        # TODO Add other couple atributes
 
     def apply(self):
         mother_name = self.mother_var.get()
@@ -121,7 +119,6 @@ class CoupleDialog(simpledialog.Dialog): # TODO - need to be change if Couple ch
         self.add_person(self.father_var)
         
     def add_child(self):
-        # Create a new person and add it to the children list
         child_dialog = PersonDialog(self, title="Add Child")
         result = child_dialog.result
 
@@ -129,7 +126,7 @@ class CoupleDialog(simpledialog.Dialog): # TODO - need to be change if Couple ch
             self.data.people.append(result)
             self.kids_listbox.insert(tk.END, result.get_name())
 
-    def add_person(self, var): # copy of a method
+    def add_person(self, var):
         name_dialog = PersonDialog(self, title="Add Person")
         result = name_dialog.result
 
@@ -228,11 +225,11 @@ class FamilyTreeUI:
 
         self.image_canvas.load_image()
 
+
     def add_person(self):
         name_dialog = PersonDialog(self.root, title="Add Person")
         result = name_dialog.result
 
-        # maybe some validation??
         if result:
             self.data.people.append(result)
             self.data.draw_family_tree()
@@ -244,7 +241,6 @@ class FamilyTreeUI:
         couple_dialog = CoupleDialog(self.root, title="Add Couple", data=self.data)
         result = couple_dialog.result
 
-        # maybe some validation??
         if result:
             self.data.couples.append(result)
             self.data.draw_family_tree()
@@ -256,14 +252,14 @@ class FamilyTreeUI:
         self.image_canvas.reset_image()
     
     def save(self):
-        self.data.export_data()
+        self.data.io.export_data()
         self.root.after(100, lambda: self.save_button.config(bg='green'))
         
     def run(self):
         self.root.mainloop()
 
 
-if __name__ == "__main__": # maybe move this to main.py?
+if __name__ == "__main__":
     data = Data([], [])
     family_tree_ui = FamilyTreeUI(data)
     family_tree_ui.run()
