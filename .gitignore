@@ -2,4 +2,7 @@ family_tree.json
 family_tree.png
 init.py
 
+*.png
+
+
 __pycache__
