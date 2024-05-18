@@ -6,3 +6,6 @@ class Couple:
         self.family_surname = family_surname
         self.marriage = marriage
         self.children = children
+
+    def get_name(self):
+        return f"{self.family_surname} ({self.marriage})"

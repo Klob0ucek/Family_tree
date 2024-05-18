@@ -127,7 +127,7 @@ class FamilyTreeUI:
         self.show_login_screen()
 
     def add_person(self):
-        name_dialog = PersonDialog(self.root, title="Add Person")
+        name_dialog = PersonDialog(self.root, title="Add Person", data=self.user.data)
         result = name_dialog.result
 
         if result:

@@ -3,6 +3,7 @@ from tkinter import simpledialog
 from models.couple import Couple
 from ui.personDialog import PersonDialog
 
+
 class CoupleDialog(simpledialog.Dialog):
     def __init__(self, parent, title, data):
         self.data = data
@@ -87,7 +88,7 @@ class CoupleDialog(simpledialog.Dialog):
         self.add_person(self.father_var)
 
     def add_child(self):
-        child_dialog = PersonDialog(self, title="Add Child")
+        child_dialog = PersonDialog(self, title="Add Child", data=self.data)
         result = child_dialog.result
 
         if result:
@@ -95,7 +96,7 @@ class CoupleDialog(simpledialog.Dialog):
             self.kids_listbox.insert(tk.END, result.get_name())
 
     def add_person(self, var):
-        name_dialog = PersonDialog(self, title="Add Person")
+        name_dialog = PersonDialog(self, title="Add Person", data=self.data)
         result = name_dialog.result
 
         if result:

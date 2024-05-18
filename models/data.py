@@ -42,6 +42,12 @@ class Data:
                 return person
         return None
 
+    def find_couple_by_name_and_marriage(self, name):
+        for couple in self.couples:
+            if couple.get_name() == name:
+                return couple
+        return None
+
     def export_data(self):
         return {
             "people": [

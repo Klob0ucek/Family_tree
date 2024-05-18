@@ -21,9 +21,9 @@ class PersonDialog(simpledialog.Dialog):
         self.couple_var = tk.StringVar(master)
         self.couple_var.set("Choose")
 
-        couple_options = [f"{couple.family_surname} ({couple.marriage})" for couple in self.data.couples]
+        couple_options = [couple.get_name() for couple in self.data.couples]
         if not couple_options:
-            couple_options_options = ["No parent couples available"]
+            couple_options = ["No parent couples available"]
         self.couple_dropdown = tk.OptionMenu(master, self.couple_var,
                                              *couple_options)
         self.couple_dropdown.grid(row=6, column=1)
@@ -47,5 +47,12 @@ class PersonDialog(simpledialog.Dialog):
         born_date = self.born.get()
         death_date = self.death.get()
 
-        self.result = Person(name, surname, born=born_date,
+        new = Person(name, surname, born=born_date,
                              death=death_date, birth_surname=birth_surname)
+
+        couple = self.couple_var.get()
+        found_couple = self.data.find_couple_by_name_and_marriage(couple)
+        if found_couple:
+            found_couple.children.append(new)
+
+        self.result = new
