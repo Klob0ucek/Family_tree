@@ -1,0 +1,72 @@
+@startuml use_case_diagram
+
+left to right direction
+
+actor "User" as user
+actor "Administrator" as admin
+actor "NewUser" as newUser
+
+rectangle "Famlily Tree Manager" {
+    usecase "RemoveUser" as rmUser
+    usecase "CreateNewUser" as creatNewUsr
+    usecase "ViewAllDiagrams" as seeDiagrams
+    usecase "LogIn" as logIn
+    usecase "LogOut" as logOut
+
+    usecase "EditFamilyTree" as edit
+    usecase "SaveFamilyTree" as save
+    usecase "ChangePassword" as password
+    usecase "UpdateGraph" as update
+    usecase "DeleteCouple" as delCoup
+    usecase delMem as "DeleteMember
+     --
+    **extension points**
+    RemovedMemberIsInFamily
+    "
+
+    usecase addCouple as "AddNewCouple
+    --
+    **extension points**
+    FamilyMembersDoesNotExist
+    "
+    usecase addMember as "AddNewFamilyMember
+    --
+    **extension points**
+    ParentCoupleDoesNotExist
+    "
+
+}
+
+admin -- rmUser
+admin -- seeDiagrams
+
+newUser -- creatNewUsr
+newUser -- seeDiagrams
+newUser -- logIn
+
+user -left- logOut
+user -left- password
+user -left- edit
+user -left- update
+user -left- save
+
+user -- delCoup
+user -- delMem
+
+delCoup <.. delMem :<<extend>>
+
+edit .up.> update ::<<include>>
+edit <|-down- addCouple
+edit <|-down- addMember
+edit <|-down- delCoup
+edit <|-down- delMem
+
+addCouple <.. addMember :<<extend>>
+addMember <.. addCouple :<<extend>>
+
+logIn -[hidden]- logOut
+creatNewUsr -[hidden]- save
+rmUser -[hidden]- update
+seeDiagrams -[hidden]- password
+
+@enduml

@@ -1,6 +1,7 @@
-family_tree.json
-family_tree.png
+data/
 init.py
+.idea/
+
 
 *.png
 

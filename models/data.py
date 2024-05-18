@@ -1,8 +1,9 @@
 from graphviz import Graph
-from uuid import uuid4, UUID
-import json
+from models.dataIO import DataIO
 
-DEFAUL_FILE = "family_tree.json"
+from models.person import Person
+from models.couple import Couple
+
 
 class Data:
     def __init__(self, people=[], couples=[]):
@@ -10,7 +11,7 @@ class Data:
         self.couples = couples
         self.io = DataIO(self)
         self.initial_data()
-        
+
     def initial_data(self):
         self.io.import_data()
         if not self.people and not self.couples:
@@ -18,12 +19,12 @@ class Data:
             self.people = p
             self.couples = c
         self.draw_family_tree()
-    
+
     def draw_family_tree(self):
         family_tree = Graph(comment='Family Tree')
 
         family_tree.attr('node', shape='box', rankdir='TB', fontname='Arial', splines='ortho')
-        family_tree.attr(ranksep='1.2',  nodesep='0.4')
+        family_tree.attr(ranksep='1.2', nodesep='0.4')
 
         for person in self.people:
             family_tree.node(str(person.id), person.node_data())
@@ -33,7 +34,6 @@ class Data:
                 sg.attr(label=f'{couple.family_surname}')
                 sg.node(str(couple.mother.id), couple.mother.node_data())
                 sg.node(str(couple.father.id), couple.father.node_data())
-                                
                 sg.edge(str(couple.mother.id), str(couple.father.id), constraint='false')
 
             for child in couple.children:
@@ -41,108 +41,17 @@ class Data:
 
         family_tree.render('family_tree', format='png', cleanup=True)
 
-
     def find_person_by_id(self, person_id):
         for person in self.people:
             if person.id == person_id:
                 return person
         return None
 
-
     def find_person_by_name(self, name):
         for person in self.people:
             if person.get_name() == name:
                 return person
         return None
-
-
-class Person:
-    def __init__(self, name, surname, id="", born="", death="", birth_surname="" ):
-        self.name = name
-        self.surname = surname
-        self.id = id
-        if id == "":
-            self.id = uuid4()
-        self.born = born
-        self.death = death
-        self.birth_surname = birth_surname
-    
-    def get_name(self):
-        return f"{self.name} {self.surname} ({self.born})"
-    
-    def node_data(self):
-        birth_name = f"({self.birth_surname})" if self.birth_surname != "" else ""
-        death = f"\n+ {self.death}" if self.death else ""
-        return f'{self.name} {birth_name} {self.surname}\n* {self.born}{death}'
-
-class Couple:
-    def __init__(self, mother, father, family_surname, marriage="1.1.2000", children=[]):
-        self.mother = mother
-        self.father = father
-        self.family_surname = family_surname
-        self.marriage = marriage
-        self.children = children
-        
-class DataIO:
-    def __init__(self, data):
-        self.data = data
-    
-    def export_data(self, filename=DEFAUL_FILE):
-        data_dict = {
-            "people": [
-                {
-                    "id": str(person.id),
-                    "name": person.name,
-                    "surname": person.surname,
-                    "born": person.born,
-                    "death": person.death,
-                    "birth_name": person.birth_surname}
-                for person in self.data.people
-            ],
-            "couples": [
-                {
-                    "mother_id": str(couple.mother.id),
-                    "father_id": str(couple.father.id),
-                    "family_surname": couple.family_surname,
-                    "marriage": couple.marriage,
-                    "children_ids": [str(child.id) for child in couple.children]
-                }
-                for couple in self.data.couples
-            ]
-        }
-
-        with open(filename, "w") as file:
-            json.dump(data_dict, file, indent=2)
-        
-    
-    def import_data(self, filename=DEFAUL_FILE):
-        try:
-            with open(DEFAUL_FILE, "r") as file:
-                data_dict = json.load(file)
-        except FileNotFoundError:
-            return
-        self.data.people = [
-            Person(
-                name=person["name"],
-                surname=person["surname"],
-                born=person["born"],
-                death=person["death"],
-                id=UUID(person["id"]),
-                birth_surname=person["birth_name"]
-            )
-            for person in data_dict["people"]
-        ]
-
-        self.data.couples = [
-            Couple(
-                mother=self.data.find_person_by_id(UUID(couple["mother_id"])),
-                father=self.data.find_person_by_id(UUID(couple["father_id"])),
-                family_surname=couple["family_surname"],
-                marriage=couple["marriage"],
-                children=[self.data.find_person_by_id(UUID(child_id)) for child_id in couple["children_ids"]]
-            )
-            for couple in data_dict["couples"]
-        ]
 
 
 def test_data():
@@ -172,11 +81,5 @@ def test_data():
     return (people, couples)
 
 
-def main():
-    data = Data()
-    data.io.export_data()
-    data.draw_family_tree()
-    
-
-if __name__ == '__main__':
-    main()
+data = Data()
+io = DataIO(data)

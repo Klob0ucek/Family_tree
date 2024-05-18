@@ -1,0 +1,37 @@
+@startuml entity_relation_diagram
+
+skinparam linetype ortho
+
+entity User {
+    name: string
+    password: string
+}
+
+entity Data {
+    data_file: string
+    png_file: string
+}
+
+entity Person {
+    id: string <<PK>>
+    first_name: string
+    last_name: string
+    birth_date: DateTime
+    death_date: DateTime
+    birth_last_name: string
+}
+
+entity Couple {
+    id: string <<PK>>
+    mother: string <<FK>>
+    father: string <<FK>>
+    family_surname: string
+    marrige_date: DateTime
+}
+
+User |o--|| Data
+Data ||-right-o{ Person
+Data ||-left-o{ Couple
+Couple |o--o{ Person
+
+@enduml
