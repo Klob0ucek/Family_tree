@@ -1,5 +1,4 @@
 from graphviz import Graph
-from models.dataIO import DataIO
 
 from models.person import Person
 from models.couple import Couple
@@ -9,18 +8,8 @@ class Data:
     def __init__(self, people=[], couples=[]):
         self.people = people
         self.couples = couples
-        self.io = DataIO(self)
-        self.initial_data()
 
-    def initial_data(self):
-        self.io.import_data()
-        if not self.people and not self.couples:
-            p, c = test_data()
-            self.people = p
-            self.couples = c
-        self.draw_family_tree()
-
-    def draw_family_tree(self):
+    def draw_family_tree(self, filename):
         family_tree = Graph(comment='Family Tree')
 
         family_tree.attr('node', shape='box', rankdir='TB', fontname='Arial', splines='ortho')
@@ -39,7 +28,7 @@ class Data:
             for child in couple.children:
                 family_tree.edge(str(couple.mother.id), str(child.id))
 
-        family_tree.render('family_tree', format='png', cleanup=True)
+        family_tree.render(filename, format='png', cleanup=True)
 
     def find_person_by_id(self, person_id):
         for person in self.people:
@@ -52,6 +41,30 @@ class Data:
             if person.get_name() == name:
                 return person
         return None
+
+    def export_data(self):
+        return {
+            "people": [
+                {
+                    "id": str(person.id),
+                    "name": person.name,
+                    "surname": person.surname,
+                    "born": person.born,
+                    "death": person.death,
+                    "birth_name": person.birth_surname}
+                for person in self.people
+            ],
+            "couples": [
+                {
+                    "mother_id": str(couple.mother.id),
+                    "father_id": str(couple.father.id),
+                    "family_surname": couple.family_surname,
+                    "marriage": couple.marriage,
+                    "children_ids": [str(child.id) for child in couple.children]
+                }
+                for couple in self.couples
+            ]
+        }
 
 
 def test_data():
@@ -79,7 +92,3 @@ def test_data():
     people = [grandpa_hviz, grandma_hviz, aunt, mom, dad, you, sister, brother, grandma_pol, grandpa_pol, uncle, uncle_pol, aunt_pol, luke, zuzu]
     couples = [couple1, couple2, couple3, couple4]
     return (people, couples)
-
-
-data = Data()
-io = DataIO(data)

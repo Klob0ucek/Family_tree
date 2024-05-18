@@ -1,10 +1,9 @@
 from models.data import Data
-from ui import FamilyTreeUI
+from ui.ui import FamilyTreeUI
 
 
 def main():
-    data = Data()
-    family_tree_ui = FamilyTreeUI(data)
+    family_tree_ui = FamilyTreeUI()
     family_tree_ui.run()
 
 
